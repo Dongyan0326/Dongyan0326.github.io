@@ -5,7 +5,7 @@
  */
 window.BlogAPI = (function() {
   // 基本路径
-  const BASE_PATH = 'data';
+  const BASE_PATH = '/data';
 
   // 缓存对象，避免重复请求同一文件
   const cache = {};

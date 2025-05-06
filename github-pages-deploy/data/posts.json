@@ -6,7 +6,7 @@
     "date": "2023-06-15T10:30:00Z",
     "author": "博主",
     "views": 356,
-    "image_url": "assets/images/react.jpg",
+    "image_url": "/assets/images/react.jpg",
     "comment_count": 2
   },
   {
@@ -16,7 +16,7 @@
     "date": "2023-05-22T14:15:00Z",
     "author": "博主",
     "views": 278,
-    "image_url": "assets/images/ml.jpg",
+    "image_url": "/assets/images/ml.jpg",
     "comment_count": 0
   },
   {
@@ -26,7 +26,7 @@
     "date": "2023-04-10T09:45:00Z",
     "author": "博主",
     "views": 195,
-    "image_url": "assets/images/css.jpg",
+    "image_url": "/assets/images/css.jpg",
     "comment_count": 1
   }
 ]
