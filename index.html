@@ -1,0 +1,145 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Homepage</title>
+    <style>
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .photo-container {
+            flex: 0 0 300px;
+            padding: 20px;
+        }
+        
+        .portrait {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .info-container {
+            flex: 1;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        
+        h1 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 10px;
+        }
+        
+        .contact-info {
+            margin: 20px 0;
+        }
+        
+        .contact-info p {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #4a90e2;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .about-me {
+            margin-top: 30px;
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .skill-item {
+            background-color: #4a90e2;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+            }
+            
+            .photo-container {
+                flex: 0 0 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="photo-container">
+            <img src="assets/images/portrait.jpg" alt="Personal Photo" class="portrait">
+        </div>
+        
+        <div class="info-container">
+            <h1>Dongyan</h1>
+            
+            <div class="contact-info">
+                <p><i>📧</i> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+                <p><i>🏢</i> Position: Software Engineer</p>
+                <p><i>🌐</i> <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+                <p><i>📱</i> Phone: +86 123 4567 8910</p>
+            </div>
+            
+            <div class="about-me">
+                <h2>About Me</h2>
+                <p>
+                    Welcome to my personal website! I am a passionate software engineer with expertise in Web development and Artificial Intelligence.
+                    With years of project experience, I excel at solving complex problems and continuously learning new technologies.
+                </p>
+                <p>
+                    In my spare time, I enjoy contributing to open-source projects, reading technical books, and exploring new programming languages and frameworks.
+                    I believe technology can change the world, and I am committed to creating value through code.
+                </p>
+            </div>
+            
+            <div class="skills">
+                <h2>Skills</h2>
+                <div class="skill-list">
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">HTML/CSS</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">Database Design</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Web Development</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

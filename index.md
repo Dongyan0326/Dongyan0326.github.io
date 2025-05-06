@@ -7,8 +7,6 @@ title: Dongyan's Personal Website
 
 ## Personal Introduction
 
-![Portrait](/assets/images/portrait.jpg){width=300 height=200}
-
 Hello! I'm Dongyan, a passionate developer and AI enthusiast.
 
 ### About Me
