@@ -29,7 +29,7 @@ layout: default
         .container {
             width: 100%;
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 4fr 6fr;
             background-color: rgba(255, 255, 255, 0.92);
             min-height: 100vh;
         }
@@ -37,7 +37,7 @@ layout: default
         .profile-section {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 35px;
-            border-left: 1px solid rgba(0, 0, 0, 0.08);
+            border-right: 1px solid rgba(0, 0, 0, 0.08);
             overflow-y: auto;
             max-height: 100vh;
             position: sticky;
@@ -313,7 +313,7 @@ layout: default
 
         @media (max-width: 1100px) {
             .container {
-                grid-template-columns: 1.5fr 1fr;
+                grid-template-columns: 4fr 6fr;
             }
         }
 
@@ -323,18 +323,18 @@ layout: default
             }
 
             .profile-section {
-                border-left: none;
-                border-top: 1px solid rgba(0, 0, 0, 0.08);
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
                 position: relative;
                 max-height: none;
                 padding-top: 40px;
-                order: 2;
+                order: 1;
             }
             
             .blog-container {
                 padding-top: 30px;
                 max-height: none;
-                order: 1;
+                order: 2;
             }
         }
 
@@ -378,7 +378,49 @@ layout: default
 </head>
 <body>
     <div class="container">
-        <!-- Blog Section - Left Side -->
+        <!-- Profile Section - Left Side -->
+        <div class="profile-section">
+            <div class="photo-container">
+                <img src="assets/images/portrait.jpg" alt="Personal Photo" class="portrait">
+            </div>
+            
+            <h1>Dongyan</h1>
+            
+            <div class="contact-info">
+                <p><i>📧</i> <a href="mailto:2303201737@qq.com">2303201737@qq.com</a></p>
+                <p><i>🏢</i> Position: Independent Developer</p>
+                <p><i>🌐</i> <a href="https://github.com/Dongyan0326" target="_blank">GitHub：Dongyan0326</a></p>
+                <p><i>📱</i> Phone: +86 180 1373 3907</p>
+            </div>
+            
+            <div class="about-me">
+                <h2>About Me</h2>
+                <p>
+                    Welcome to my personal website! I am a passionate software engineer with expertise in Web development and Artificial Intelligence.
+                    With years of project experience, I excel at solving complex problems and continuously learning new technologies.
+                </p>
+                <p>
+                    In my spare time, I enjoy contributing to open-source projects, reading technical books, and exploring new programming languages and frameworks.
+                    I believe technology can change the world, and I am committed to creating value through code.
+                </p>
+            </div>
+            
+            <div class="skills">
+                <h2>Skills</h2>
+                <div class="skill-list">
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">HTML/CSS</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">Database Design</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Web Development</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Section - Right Side -->
         <div class="blog-container">
             <!-- Blog Header with Title and Add Button -->
             <div class="blog-header">
@@ -438,48 +480,6 @@ layout: default
                     <div class="post-actions">
                         <a href="#" class="read-more">Read More</a>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Profile Section - Right Side -->
-        <div class="profile-section">
-            <div class="photo-container">
-                <img src="assets/images/portrait.jpg" alt="Personal Photo" class="portrait">
-            </div>
-            
-            <h1>Dongyan</h1>
-            
-            <div class="contact-info">
-                <p><i>📧</i> <a href="mailto:2303201737@qq.com">2303201737@qq.com</a></p>
-                <p><i>🏢</i> Position: Independent Developer</p>
-                <p><i>🌐</i> <a href="https://github.com/Dongyan0326" target="_blank">GitHub：Dongyan0326</a></p>
-                <p><i>📱</i> Phone: +86 180 1373 3907</p>
-            </div>
-            
-            <div class="about-me">
-                <h2>About Me</h2>
-                <p>
-                    Welcome to my personal website! I am a passionate software engineer with expertise in Web development and Artificial Intelligence.
-                    With years of project experience, I excel at solving complex problems and continuously learning new technologies.
-                </p>
-                <p>
-                    In my spare time, I enjoy contributing to open-source projects, reading technical books, and exploring new programming languages and frameworks.
-                    I believe technology can change the world, and I am committed to creating value through code.
-                </p>
-            </div>
-            
-            <div class="skills">
-                <h2>Skills</h2>
-                <div class="skill-list">
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">Python</div>
-                    <div class="skill-item">HTML/CSS</div>
-                    <div class="skill-item">React</div>
-                    <div class="skill-item">Node.js</div>
-                    <div class="skill-item">Database Design</div>
-                    <div class="skill-item">Machine Learning</div>
-                    <div class="skill-item">Web Development</div>
                 </div>
             </div>
         </div>
