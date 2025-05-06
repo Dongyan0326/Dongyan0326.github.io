@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Dong Yan's Personal Website
+title: Dongyan's Personal Website
 ---
 
 
@@ -9,7 +9,7 @@ title: Dong Yan's Personal Website
 
 ![Portrait](/assets/images/portrait.jpg)
 
-Hello! I'm Dong, a passionate developer and AI enthusiast.
+Hello! I'm Dongyan, a passionate developer and AI enthusiast.
 
 ### About Me
 
