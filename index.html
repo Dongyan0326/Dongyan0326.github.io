@@ -9,74 +9,96 @@ layout: default
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Homepage</title>
     <style>
-        .profile-container {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .main-content {
             display: flex;
             flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 40px auto;
+            gap: 30px;
+        }
+
+        .profile-section {
+            flex: 1;
+            min-width: 300px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
-        .photo-container {
-            flex: 0 0 300px;
+
+        .blog-section {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
-        
+
+        .photo-container {
+            text-align: center;
+            padding: 20px;
+        }
+
         .portrait {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        
+
         .info-container {
-            flex: 1;
-            padding: 30px;
-            background-color: #f9f9f9;
+            padding: 0 20px 20px;
         }
-        
+
+        h1, h2 {
+            color: #2a7d8e;
+        }
+
         h1 {
             margin-top: 0;
-            color: #333;
             border-bottom: 2px solid #4a90e2;
             padding-bottom: 10px;
         }
-        
+
         .contact-info {
             margin: 20px 0;
         }
-        
+
         .contact-info p {
             margin: 8px 0;
             display: flex;
             align-items: center;
         }
-        
+
         .contact-info i {
             margin-right: 10px;
             color: #4a90e2;
             width: 20px;
             text-align: center;
         }
-        
-        .about-me {
-            margin-top: 30px;
-        }
-        
-        .skills {
-            margin-top: 30px;
-        }
-        
+
         .skill-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-top: 15px;
         }
-        
+
         .skill-item {
             background-color: #4a90e2;
             color: white;
@@ -85,61 +107,263 @@ layout: default
             font-size: 14px;
         }
 
+        .blog-post {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+
+        .post-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .post-content {
+            margin-top: 10px;
+        }
+
+        .post-actions {
+            margin-top: 15px;
+        }
+
+        .read-more {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .upload-section {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3a7bc8;
+        }
+
+        #blog-form {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
         @media (max-width: 768px) {
-            .profile-container {
+            .main-content {
                 flex-direction: column;
             }
-            
-            .photo-container {
-                flex: 0 0 100%;
-                max-width: 300px;
-                margin: 0 auto;
+
+            .profile-section, .blog-section {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="profile-container">
-        <div class="photo-container">
-            <img src="assets/images/portrait.jpg" alt="Personal Photo" class="portrait">
-        </div>
-        
-        <div class="info-container">
-            <h1>Dongyan</h1>
-            
-            <div class="contact-info">
-                <p><i>📧</i> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-                <p><i>🏢</i> Position: Software Engineer</p>
-                <p><i>🌐</i> <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
-                <p><i>📱</i> Phone: +86 123 4567 8910</p>
+    <div class="container">
+        <div class="main-content">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="photo-container">
+                    <img src="assets/images/portrait.jpg" alt="Personal Photo" class="portrait">
+                </div>
+                
+                <div class="info-container">
+                    <h1>Dongyan</h1>
+                    
+                    <div class="contact-info">
+                        <p><i>📧</i> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+                        <p><i>🏢</i> Position: Software Engineer</p>
+                        <p><i>🌐</i> <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+                        <p><i>📱</i> Phone: +86 123 4567 8910</p>
+                    </div>
+                    
+                    <div class="about-me">
+                        <h2>About Me</h2>
+                        <p>
+                            Welcome to my personal website! I am a passionate software engineer with expertise in Web development and Artificial Intelligence.
+                            With years of project experience, I excel at solving complex problems and continuously learning new technologies.
+                        </p>
+                        <p>
+                            In my spare time, I enjoy contributing to open-source projects, reading technical books, and exploring new programming languages and frameworks.
+                            I believe technology can change the world, and I am committed to creating value through code.
+                        </p>
+                    </div>
+                    
+                    <div class="skills">
+                        <h2>Skills</h2>
+                        <div class="skill-list">
+                            <div class="skill-item">JavaScript</div>
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">HTML/CSS</div>
+                            <div class="skill-item">React</div>
+                            <div class="skill-item">Node.js</div>
+                            <div class="skill-item">Database Design</div>
+                            <div class="skill-item">Machine Learning</div>
+                            <div class="skill-item">Web Development</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="about-me">
-                <h2>About Me</h2>
-                <p>
-                    Welcome to my personal website! I am a passionate software engineer with expertise in Web development and Artificial Intelligence.
-                    With years of project experience, I excel at solving complex problems and continuously learning new technologies.
-                </p>
-                <p>
-                    In my spare time, I enjoy contributing to open-source projects, reading technical books, and exploring new programming languages and frameworks.
-                    I believe technology can change the world, and I am committed to creating value through code.
-                </p>
-            </div>
-            
-            <div class="skills">
-                <h2>Skills</h2>
-                <div class="skill-list">
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">Python</div>
-                    <div class="skill-item">HTML/CSS</div>
-                    <div class="skill-item">React</div>
-                    <div class="skill-item">Node.js</div>
-                    <div class="skill-item">Database Design</div>
-                    <div class="skill-item">Machine Learning</div>
-                    <div class="skill-item">Web Development</div>
+
+            <!-- Blog Section -->
+            <div class="blog-section">
+                <h1>Recent Blog Posts</h1>
+                
+                <!-- Sample blog posts -->
+                <div class="blog-post">
+                    <h2>Getting Started with React</h2>
+                    <div class="post-date">June 15, 2023</div>
+                    <div class="post-content">
+                        <p>React is a popular JavaScript library for building user interfaces. In this post, I'll share my experience and tips for beginners starting with React development...</p>
+                    </div>
+                    <div class="post-actions">
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <h2>Machine Learning Fundamentals</h2>
+                    <div class="post-date">May 22, 2023</div>
+                    <div class="post-content">
+                        <p>Understanding the fundamentals of machine learning is crucial for anyone looking to dive into AI. This post covers the basic concepts, algorithms, and practical applications...</p>
+                    </div>
+                    <div class="post-actions">
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="blog-post">
+                    <h2>Modern CSS Techniques</h2>
+                    <div class="post-date">April 10, 2023</div>
+                    <div class="post-content">
+                        <p>CSS has evolved significantly in recent years. In this post, I explore modern CSS techniques like Grid, Flexbox, and CSS variables that can elevate your web design skills...</p>
+                    </div>
+                    <div class="post-actions">
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section">
+            <button id="show-form-btn">Add New Blog Post</button>
+            
+            <div id="blog-form">
+                <h2>Create New Blog Post</h2>
+                <form id="new-post-form">
+                    <div class="form-group">
+                        <label for="post-title">Title</label>
+                        <input type="text" id="post-title" name="title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-content">Content</label>
+                        <textarea id="post-content" name="content" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Publish Post</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Toggle blog form visibility
+        document.getElementById('show-form-btn').addEventListener('click', function() {
+            const form = document.getElementById('blog-form');
+            if (form.style.display === 'block') {
+                form.style.display = 'none';
+            } else {
+                form.style.display = 'block';
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('new-post-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const title = document.getElementById('post-title').value;
+            const content = document.getElementById('post-content').value;
+            
+            // Create new blog post element
+            const blogSection = document.querySelector('.blog-section');
+            const newPost = document.createElement('div');
+            newPost.className = 'blog-post';
+            
+            // Get current date
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString('en-US', options);
+            
+            // Set post HTML
+            newPost.innerHTML = `
+                <h2>${title}</h2>
+                <div class="post-date">${formattedDate}</div>
+                <div class="post-content">
+                    <p>${content}</p>
+                </div>
+                <div class="post-actions">
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            `;
+            
+            // Insert new post at the top
+            const firstPost = blogSection.querySelector('.blog-post');
+            blogSection.insertBefore(newPost, firstPost);
+            
+            // Reset form
+            document.getElementById('new-post-form').reset();
+            document.getElementById('blog-form').style.display = 'none';
+            
+            alert('Blog post published successfully!');
+        });
+    </script>
 </body>
 </html> 
