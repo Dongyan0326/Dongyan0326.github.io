@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "name": "Dongyan",
+  "title": "独立开发者",
+  "email": "2303201737@qq.com",
+  "github": "Dongyan0326",
+  "phone": "+86 180 1373 3907",
+  "about": "作为一名怀揣物理思维与AI热情的学习者，我始终相信科学的交叉融合将重塑未来。本科阶段的物理学训练赋予我严谨的逻辑推导能力与对自然规律的敏锐洞察力，而当下对Web开发、程序设计的探索，则让我掌握了将抽象概念转化为实际应用的桥梁。\n\n在学习HTML、CSS和JavaScript构建交互界面的过程中，我逐渐理解用户需求与技术实现间的平衡艺术；通过Python程序设计，我培养出结构化解决问题的思维方式，这些都为我的AI探索之路奠定了坚实基础。",
+  "photo_url": "/assets/images/portrait.jpg",
+  "skills": [
+    "JavaScript",
+    "Python",
+    "HTML/CSS",
+    "React",
+    "Node.js",
+    "数据库设计",
+    "机器学习",
+    "Web开发"
+  ]
+}

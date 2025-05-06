@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "post_id": 1,
+    "name": "张明",
+    "content": "React入门介绍得很棒！期待更多这样的内容。",
+    "date": "2023-06-16T08:22:00Z"
+  },
+  {
+    "id": 2,
+    "post_id": 1,
+    "name": "李华",
+    "content": "这篇文章帮我更好地理解了React钩子。谢谢分享！",
+    "date": "2023-06-18T15:40:00Z"
+  },
+  {
+    "id": 3,
+    "post_id": 3,
+    "name": "Alex Johnson",
+    "content": "CSS Grid changed my life! Thanks for explaining it so clearly.",
+    "date": "2023-04-12T10:15:00Z"
+  }
+]
