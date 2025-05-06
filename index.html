@@ -7,7 +7,7 @@ layout: default
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dongyan's Blog</title>
+    <title>Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -24,25 +24,23 @@ layout: default
             color: #2c3e50;
             background: linear-gradient(135deg, #2ecc71, #3498db);
             min-height: 100vh;
-            padding: 30px 0;
         }
 
         .container {
-            width: 95%;
-            max-width: 1600px;
-            margin: 0 auto;
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 30px;
             background-color: rgba(255, 255, 255, 0.92);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            min-height: 100vh;
         }
 
         .site-title {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
             text-align: center;
-            margin-bottom: 40px;
+            z-index: 10;
         }
 
         .site-title h1 {
@@ -61,12 +59,19 @@ layout: default
             padding: 35px;
             border-right: 1px solid rgba(0, 0, 0, 0.08);
             overflow-y: auto;
+            max-height: 100vh;
+            position: sticky;
+            top: 0;
+            padding-top: 85px;
         }
 
         .blog-container {
             padding: 35px;
             display: flex;
             flex-direction: column;
+            padding-top: 85px;
+            max-height: 100vh;
+            overflow-y: auto;
         }
 
         .blog-header {
@@ -76,6 +81,11 @@ layout: default
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 5;
+            padding-top: 20px;
         }
 
         .blog-section {
@@ -84,7 +94,6 @@ layout: default
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             padding: 30px;
             flex-grow: 1;
-            overflow-y: auto;
         }
 
         .photo-container {
@@ -324,36 +333,42 @@ layout: default
 
         @media (max-width: 1100px) {
             .container {
-                width: 90%;
                 grid-template-columns: 1fr 1.5fr;
+            }
+            
+            .site-title h1 {
+                font-size: 2.8rem;
             }
         }
 
         @media (max-width: 900px) {
-            body {
-                padding: 20px 0;
-            }
-            
             .container {
                 grid-template-columns: 1fr;
-                width: 85%;
             }
 
             .profile-section {
                 border-right: none;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                position: relative;
+                max-height: none;
+                padding-top: 70px;
             }
-
+            
+            .blog-container {
+                padding-top: 30px;
+                max-height: none;
+            }
+            
+            .site-title {
+                position: fixed;
+            }
+            
             .site-title h1 {
                 font-size: 2.5rem;
             }
         }
 
         @media (max-width: 600px) {
-            .container {
-                width: 95%;
-            }
-            
             .blog-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -370,6 +385,10 @@ layout: default
             
             .site-title h1 {
                 font-size: 2rem;
+            }
+            
+            .profile-section {
+                padding-top: 60px;
             }
         }
     </style>
@@ -424,6 +443,12 @@ layout: default
 
         <!-- Blog Section - Right Side -->
         <div class="blog-container">
+            <!-- Blog Header with Title and Add Button -->
+            <div class="blog-header">
+                <h1>Recent Blog Posts</h1>
+                <button id="show-form-btn"><i>✏️</i> Add New Post</button>
+            </div>
+            
             <!-- Blog Form - Appears when Add button is clicked -->
             <div id="blog-form">
                 <h2>Create New Blog Post</h2>
@@ -440,12 +465,6 @@ layout: default
                     
                     <button type="submit">Publish Post</button>
                 </form>
-            </div>
-
-            <!-- Blog Header with Title and Add Button -->
-            <div class="blog-header">
-                <h1>Recent Blog Posts</h1>
-                <button id="show-form-btn"><i>✏️</i> Add New Post</button>
             </div>
             
             <!-- Blog Posts Section -->
