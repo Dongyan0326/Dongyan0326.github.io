@@ -37,6 +37,6 @@ On this blog, I'll be sharing:
 
 Feel free to connect with me via:
 - GitHub: [dongyan0326](https://github.com/dongyan0326)
-- Email: [zdy2303201737@outlook.com]
+- Email: zdy2303201737@outlook.com
 
 Looking forward to discussing technology and growing together with like-minded friends!
