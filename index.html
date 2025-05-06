@@ -67,8 +67,8 @@ layout: default
         /* 主容器 */
         .container {
             width: 100%;
-            display: grid;
-            grid-template-columns: 4fr 6fr;
+            display: flex;
+            flex-direction: column;
             background-color: rgba(255, 255, 255, 0.95);
             position: relative;
             z-index: 1;
@@ -79,20 +79,36 @@ layout: default
         /* 个人介绍部分 */
         .profile-section {
             background-color: white;
-            padding: 35px 35px 85px 35px;
-            border-right: 1px solid rgba(0, 0, 0, 0.08);
-            height: calc(100vh - 80px);
-            overflow-y: auto;
-            position: sticky;
-            top: 80px;
+            padding: 35px 35px 40px 35px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         /* 文章列表部分 */
         .blog-container {
             background-color: white;
             padding: 35px 35px 85px 35px;
-            height: calc(100vh - 80px);
             overflow-y: auto;
+        }
+
+        /* 个人介绍左侧部分 - 头像和基本信息 */
+        .profile-left {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-right: 30px;
+        }
+
+        /* 个人介绍右侧部分 - 关于我和技能 */
+        .profile-right {
+            width: 70%;
+            padding-left: 30px;
+            border-left: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .blog-header {
@@ -376,18 +392,18 @@ layout: default
         }
 
         @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-
             .profile-section {
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-                position: relative;
-                height: auto;
-                overflow-y: visible;
-                padding-bottom: 40px;
-                top: 0;
+                flex-direction: column;
+            }
+            
+            .profile-left, .profile-right {
+                width: 100%;
+                padding: 0;
+                border-left: none;
+            }
+            
+            .profile-left {
+                margin-bottom: 30px;
             }
             
             .blog-container {
@@ -421,10 +437,6 @@ layout: default
             
             .blog-section {
                 padding: 20px;
-            }
-            
-            .profile-section {
-                padding-top: 40px;
             }
         }
 
@@ -2175,35 +2187,35 @@ layout: default
             50% { transform: translateY(-5px); }
         }
 
-        /* 首页出现动画 */
+        /* 首页出现动画 - 修改为上下动画 */
         .profile-section {
-            animation: fadeInLeft 0.8s ease backwards;
+            animation: fadeInDown 0.8s ease backwards;
         }
 
         .blog-container {
-            animation: fadeInRight 0.8s ease backwards;
+            animation: fadeInUp 0.8s ease backwards;
             animation-delay: 0.2s;
         }
 
-        @keyframes fadeInLeft {
+        @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateX(-30px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
         }
 
-        @keyframes fadeInRight {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateX(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
         }
 
@@ -2493,51 +2505,55 @@ layout: default
     </div>
     
     <div class="container">
-        <!-- Profile Section - Left Side -->
+        <!-- 个人介绍部分 - 移至顶部 -->
         <div class="profile-section">
-            <div class="photo-container">
-                <img src="assets/images/portrait.jpg" alt="个人照片" class="portrait">
+            <!-- 个人介绍左侧 - 头像和基本信息 -->
+            <div class="profile-left">
+                <div class="photo-container">
+                    <img src="assets/images/portrait.jpg" alt="个人照片" class="portrait">
+                </div>
+                
+                <h1>Dongyan</h1>
+                
+                <div class="contact-info">
+                    <p><i>📧</i> <a href="mailto:2303201737@qq.com">Email：2303201737@qq.com</a></p>
+                    <p><i>🏢</i> 职位：独立开发者</p>
+                    <p><i>🌐</i> <a href="https://github.com/Dongyan0326" target="_blank">GitHub：Dongyan0326</a></p>
+                    <p><i>📱</i> 电话：+86 180 1373 3907</p>
+                </div>
             </div>
             
-            <h1>Dongyan</h1>
-            
-            <div class="contact-info">
-                <p><i>📧</i> <a href="mailto:2303201737@qq.com">Email：2303201737@qq.com</a></p>
-                <p><i>🏢</i> 职位：独立开发者</p>
-                <p><i>🌐</i> <a href="https://github.com/Dongyan0326" target="_blank">GitHub：Dongyan0326</a></p>
-                <p><i>📱</i> 电话：+86 180 1373 3907</p>
-            </div>
-            
-            <div class="about-me">
-                <h2>关于我</h2>
-                <p>
-                    作为一名怀揣物理思维与AI热情的学习者，我始终相信科学的交叉融合将重塑未来。本科阶段的物理学训练赋予我严谨的逻辑推导能力与对自然规律的敏锐洞察力，而当下对Web开发、程序设计的探索，则让我掌握了将抽象概念转化为实际应用的桥梁。
-                    在学习HTML、CSS和JavaScript构建交互界面的过程中，我逐渐理解用户需求与技术实现间的平衡艺术；通过Python程序设计，我培养出结构化解决问题的思维方式，这些都为我的AI探索之路奠定了坚实基础。
-
-                </p>
-                <p>
-                    目前，我正专注于机器学习与PyTorch框架的深度学习，尝试将物理领域的复杂模型与AI技术相结合。无论是利用神经网络求解物理方程，还是通过强化学习模拟物理系统，我始终致力于挖掘数据背后的科学规律。
-                    在博客中，我将分享Web开发实践心得、机器学习项目经验，以及物理与AI交叉领域的前沿思考，期待与同样热爱探索的你共同成长，见证技术与科学碰撞出的无限可能。 
-
-                </p>
-            </div>
-            
-            <div class="skills">
-                <h2>技能</h2>
-                <div class="skill-list">
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">Python</div>
-                    <div class="skill-item">HTML/CSS</div>
-                    <div class="skill-item">React</div>
-                    <div class="skill-item">Node.js</div>
-                    <div class="skill-item">数据库设计</div>
-                    <div class="skill-item">机器学习</div>
-                    <div class="skill-item">Web开发</div>
+            <!-- 个人介绍右侧 - 关于我和技能 -->
+            <div class="profile-right">
+                <div class="about-me">
+                    <h2>关于我</h2>
+                    <p>
+                        作为一名怀揣物理思维与AI热情的学习者，我始终相信科学的交叉融合将重塑未来。本科阶段的物理学训练赋予我严谨的逻辑推导能力与对自然规律的敏锐洞察力，而当下对Web开发、程序设计的探索，则让我掌握了将抽象概念转化为实际应用的桥梁。
+                        在学习HTML、CSS和JavaScript构建交互界面的过程中，我逐渐理解用户需求与技术实现间的平衡艺术；通过Python程序设计，我培养出结构化解决问题的思维方式，这些都为我的AI探索之路奠定了坚实基础。
+                    </p>
+                    <p>
+                        目前，我正专注于机器学习与PyTorch框架的深度学习，尝试将物理领域的复杂模型与AI技术相结合。无论是利用神经网络求解物理方程，还是通过强化学习模拟物理系统，我始终致力于挖掘数据背后的科学规律。
+                        在博客中，我将分享Web开发实践心得、机器学习项目经验，以及物理与AI交叉领域的前沿思考，期待与同样热爱探索的你共同成长，见证技术与科学碰撞出的无限可能。 
+                    </p>
+                </div>
+                
+                <div class="skills">
+                    <h2>技能</h2>
+                    <div class="skill-list">
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">HTML/CSS</div>
+                        <div class="skill-item">React</div>
+                        <div class="skill-item">Node.js</div>
+                        <div class="skill-item">数据库设计</div>
+                        <div class="skill-item">机器学习</div>
+                        <div class="skill-item">Web开发</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Blog Section - Right Side -->
+        <!-- 博客文章部分 - 现在在下方 -->
         <div class="blog-container">
             <!-- Blog Form - Appears when Add button is clicked -->
             <div id="blog-form">
@@ -3681,16 +3697,16 @@ layout: default
             const about = document.getElementById('profile-about').value;
             
             // 更新个人信息
-            document.querySelector('.profile-section h1').textContent = name;
-            document.querySelector('.contact-info p:nth-child(1) a').textContent = email;
-            document.querySelector('.contact-info p:nth-child(1) a').href = `mailto:${email}`;
-            document.querySelector('.contact-info p:nth-child(2)').innerHTML = `<i>🏢</i> 职位：${title}`;
-            document.querySelector('.contact-info p:nth-child(3) a').textContent = `GitHub：${github}`;
-            document.querySelector('.contact-info p:nth-child(4)').innerHTML = `<i>📱</i> 电话：${phone}`;
+            document.querySelector('.profile-left h1').textContent = name;
+            document.querySelector('.profile-left .contact-info p:nth-child(1) a').textContent = email;
+            document.querySelector('.profile-left .contact-info p:nth-child(1) a').href = `mailto:${email}`;
+            document.querySelector('.profile-left .contact-info p:nth-child(2)').innerHTML = `<i>🏢</i> 职位：${title}`;
+            document.querySelector('.profile-left .contact-info p:nth-child(3) a').textContent = `GitHub：${github}`;
+            document.querySelector('.profile-left .contact-info p:nth-child(4)').innerHTML = `<i>📱</i> 电话：${phone}`;
             
             // 更新关于我
             const aboutParagraphs = about.split('\n\n');
-            const aboutSection = document.querySelector('.about-me');
+            const aboutSection = document.querySelector('.profile-right .about-me');
             const aboutTitle = aboutSection.querySelector('h2');
             
             // 清除现有段落
