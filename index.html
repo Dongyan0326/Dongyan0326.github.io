@@ -92,7 +92,6 @@ layout: default
         .blog-container {
             background-color: white;
             padding: 35px 35px 85px 35px;
-            overflow-y: auto;
         }
 
         /* 个人介绍左侧部分 - 头像和基本信息 */
@@ -2287,36 +2286,34 @@ layout: default
         /* 使两个容器可以独立滚动 */
         @media (min-width: 901px) {
             html, body {
-                height: 100%;
+                height: auto;
                 margin: 0;
                 padding: 0;
-                overflow: hidden;
+                overflow: auto;
             }
             
             .container {
-                height: calc(100vh - 80px);
+                height: auto;
                 margin-top: 80px;
-                overflow: hidden;
+                overflow: visible;
             }
             
             .profile-section {
-                height: 100%;
-                overflow-y: auto;
-                padding-bottom: 100px;
+                height: auto;
+                position: relative;
+                top: 0;
+                overflow-y: visible;
             }
             
             .blog-container {
-                height: 100%;
-                overflow-y: auto;
-                padding-bottom: 100px;
+                height: auto;
+                overflow-y: visible;
             }
             
-            /* 使用伪元素增加底部空间确保可滚动到底部 */
+            /* 移除伪元素的额外空间 */
             .profile-section::after,
             .blog-container::after {
-                content: '';
-                display: block;
-                height: 50px; /* 底部额外空间 */
+                display: none;
             }
         }
 
