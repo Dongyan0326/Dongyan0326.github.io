@@ -22,175 +22,180 @@ layout: default
             font-family: 'Roboto', sans-serif;
             line-height: 1.7;
             color: #2c3e50;
-            background: linear-gradient(135deg, #2ecc71, #3498db);
+            background: #3498db;
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .container {
-            width: 100%;
+            width: 95%;
+            height: 90vh;
             display: grid;
             grid-template-columns: 1fr 2fr;
-            background-color: rgba(255, 255, 255, 0.92);
-            min-height: 100vh;
-        }
-
-        .site-title {
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 10;
-        }
-
-        .site-title h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #00ff9d, #00c8ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            letter-spacing: -0.5px;
+            grid-template-rows: auto 1fr;
+            grid-template-areas: 
+                "intro add"
+                "intro posts";
+            gap: 20px;
+            max-width: 1800px;
         }
 
         .profile-section {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 35px;
-            border-right: 1px solid rgba(0, 0, 0, 0.08);
+            grid-area: intro;
+            background-color: #e67e22;
+            border-radius: 8px;
+            padding: 40px;
             overflow-y: auto;
-            max-height: 100vh;
-            position: sticky;
-            top: 0;
-            padding-top: 85px;
-        }
-
-        .blog-container {
-            padding: 35px;
             display: flex;
             flex-direction: column;
-            padding-top: 85px;
-            max-height: 100vh;
-            overflow-y: auto;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            color: white;
+            position: relative;
         }
 
-        .blog-header {
+        .add-post-section {
+            grid-area: add;
+            background-color: #e67e22;
+            border-radius: 8px;
+            padding: 30px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            z-index: 5;
-            padding-top: 20px;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-post-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .add-post-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: white;
+            text-align: center;
         }
 
         .blog-section {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            padding: 30px;
-            flex-grow: 1;
+            grid-area: posts;
+            background-color: #f1c40f;
+            border-radius: 8px;
+            padding: 40px;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .photo-container {
-            text-align: center;
-            margin-bottom: 25px;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            position: relative;
         }
 
         .portrait {
-            width: 160px;
-            height: 160px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        h1, h2, h3 {
+        .profile-content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .profile-name {
             font-family: 'Poppins', sans-serif;
-            color: #2a7d8e;
-            letter-spacing: -0.5px;
-        }
-
-        h1 {
-            margin: 15px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
+            font-size: 2.2rem;
             font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
         }
 
-        .blog-header h1 {
-            margin: 0;
-            border: none;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #2c3e50;
+        .profile-info {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .contact-info {
-            margin: 25px 0;
-        }
-
-        .contact-info p {
-            margin: 12px 0;
+        .profile-info-item {
             display: flex;
             align-items: center;
-            font-size: 1rem;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
         }
 
-        .contact-info i {
-            margin-right: 12px;
-            color: #3498db;
-            width: 20px;
-            text-align: center;
+        .profile-info-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
         }
 
-        .about-me h2 {
-            margin-bottom: 15px;
-            font-size: 1.6rem;
+        .profile-info-item a:hover {
+            opacity: 0.8;
         }
 
-        .about-me p {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            text-align: justify;
-            color: #34495e;
+        .profile-bio {
+            margin: 25px 0;
+            font-size: 1.1rem;
             line-height: 1.8;
-        }
-
-        .skills h2 {
-            margin: 30px 0 15px 0;
-            font-size: 1.6rem;
+            text-align: center;
+            color: white;
         }
 
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 30px;
         }
 
         .skill-item {
-            background: linear-gradient(to right, #2ecc71, #3498db);
+            background-color: rgba(255, 255, 255, 0.15);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.95rem;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
-            letter-spacing: 0.5px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .post-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .blog-post {
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             padding: 25px;
-            margin-bottom: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -200,16 +205,12 @@ layout: default
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .blog-post:last-child {
-            margin-bottom: 0;
-        }
-
         .blog-post h2 {
-            margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: #2c3e50;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 600;
+            font-family: 'Poppins', sans-serif;
         }
 
         .post-date {
@@ -240,7 +241,7 @@ layout: default
         }
 
         .read-more {
-            color: #3498db;
+            color: #e67e22;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
@@ -258,71 +259,97 @@ layout: default
         }
 
         .read-more:hover {
-            color: #2980b9;
+            color: #d35400;
         }
         
         .read-more:hover::after {
             transform: translateX(5px);
         }
 
-        button {
-            background: linear-gradient(to right, #2ecc71, #3498db);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        button:hover {
-            background: linear-gradient(to right, #27ae60, #2980b9);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            transform: translateY(-2px);
-        }
-
         #blog-form {
             display: none;
-            background-color: #fff;
-            padding: 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        #blog-form.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 40px;
             border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .close-form {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #7f8c8d;
+            transition: color 0.3s;
+        }
+
+        .close-form:hover {
+            color: #e74c3c;
+        }
+
+        .form-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
             margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: #2c3e50;
+            text-align: center;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 500;
             color: #2c3e50;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
         input, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 1rem;
             transition: all 0.3s;
             font-family: 'Roboto', sans-serif;
+            background-color: #f7f9fc;
         }
 
         input:focus, textarea:focus {
             border-color: #3498db;
             outline: none;
-            box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+            background-color: white;
         }
 
         textarea {
@@ -331,103 +358,139 @@ layout: default
             line-height: 1.6;
         }
 
+        .submit-btn {
+            background: linear-gradient(to right, #e67e22, #f39c12);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to right, #d35400, #e67e22);
+            box-shadow: 0 6px 15px rgba(211, 84, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 1100px) {
             .container {
-                grid-template-columns: 1fr 1.5fr;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr;
+                grid-template-areas: 
+                    "intro"
+                    "add"
+                    "posts";
+                height: auto;
+                min-height: 90vh;
             }
-            
-            .site-title h1 {
-                font-size: 2.8rem;
+
+            .profile-section {
+                padding: 30px;
+            }
+
+            .add-post-section, .blog-section {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .post-list {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: "600px") {
+            body {
+                padding: 10px;
+            }
+
             .container {
+                width: 100%;
+                gap: 15px;
+            }
+
+            .profile-section {
+                padding: 20px;
+            }
+
+            .photo-container {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-name {
+                font-size: 1.8rem;
+            }
+
+            .profile-bio {
+                font-size: 1rem;
+            }
+
+            .skill-item {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+
+            .post-list {
                 grid-template-columns: 1fr;
             }
 
-            .profile-section {
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-                position: relative;
-                max-height: none;
-                padding-top: 70px;
-            }
-            
-            .blog-container {
-                padding-top: 30px;
-                max-height: none;
-            }
-            
-            .site-title {
-                position: fixed;
-            }
-            
-            .site-title h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .blog-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            
-            .profile-section, .blog-container {
-                padding: 25px;
-            }
-            
-            .blog-section {
+            .form-container {
                 padding: 20px;
-            }
-            
-            .site-title h1 {
-                font-size: 2rem;
-            }
-            
-            .profile-section {
-                padding-top: 60px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="site-title">
-        <h1>Dongyan's Blog</h1>
-    </div>
-    
     <div class="container">
         <!-- Profile Section - Left Side -->
         <div class="profile-section">
+            <div class="section-title">自我介绍</div>
+            
             <div class="photo-container">
                 <img src="assets/images/portrait.jpg" alt="Personal Photo" class="portrait">
             </div>
             
-            <h1>Dongyan</h1>
-            
-            <div class="contact-info">
-                <p><i>📧</i> <a href="mailto:2303201737@qq.com">2303201737@qq.com</a></p>
-                <p><i>🏢</i> Position: Independent Developer</p>
-                <p><i>🌐</i> <a href="https://github.com/Dongyan0326" target="_blank">GitHub：Dongyan0326</a></p>
-                <p><i>📱</i> Phone: +86 180 1373 3907</p>
-            </div>
-            
-            <div class="about-me">
-                <h2>About Me</h2>
-                <p>
+            <div class="profile-content">
+                <h1 class="profile-name">Dongyan</h1>
+                
+                <div class="profile-info">
+                    <div class="profile-info-item">
+                        <span>📧</span>
+                        <a href="mailto:2303201737@qq.com">2303201737@qq.com</a>
+                    </div>
+                    <div class="profile-info-item">
+                        <span>🏢</span>
+                        <span>Position: Independent Developer</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span>🌐</span>
+                        <a href="https://github.com/Dongyan0326" target="_blank">GitHub：Dongyan0326</a>
+                    </div>
+                    <div class="profile-info-item">
+                        <span>📱</span>
+                        <span>Phone: +86 180 1373 3907</span>
+                    </div>
+                </div>
+                
+                <div class="profile-bio">
                     Welcome to my personal website! I am a passionate software engineer with expertise in Web development and Artificial Intelligence.
                     With years of project experience, I excel at solving complex problems and continuously learning new technologies.
-                </p>
-                <p>
+                    <br><br>
                     In my spare time, I enjoy contributing to open-source projects, reading technical books, and exploring new programming languages and frameworks.
                     I believe technology can change the world, and I am committed to creating value through code.
-                </p>
-            </div>
-            
-            <div class="skills">
-                <h2>Skills</h2>
+                </div>
+                
                 <div class="skill-list">
                     <div class="skill-item">JavaScript</div>
                     <div class="skill-item">Python</div>
@@ -441,34 +504,16 @@ layout: default
             </div>
         </div>
 
-        <!-- Blog Section - Right Side -->
-        <div class="blog-container">
-            <!-- Blog Header with Title and Add Button -->
-            <div class="blog-header">
-                <h1>Recent Blog Posts</h1>
-                <button id="show-form-btn"><i>✏️</i> Add New Post</button>
-            </div>
+        <!-- Add Post Button - Right Top -->
+        <div class="add-post-section" id="show-form-btn">
+            <div class="add-post-text">添加新文章</div>
+        </div>
+        
+        <!-- Blog Posts Section - Right Bottom -->
+        <div class="blog-section">
+            <div class="section-title">文章列表</div>
             
-            <!-- Blog Form - Appears when Add button is clicked -->
-            <div id="blog-form">
-                <h2>Create New Blog Post</h2>
-                <form id="new-post-form">
-                    <div class="form-group">
-                        <label for="post-title">Title</label>
-                        <input type="text" id="post-title" name="title" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="post-content">Content</label>
-                        <textarea id="post-content" name="content" required></textarea>
-                    </div>
-                    
-                    <button type="submit">Publish Post</button>
-                </form>
-            </div>
-            
-            <!-- Blog Posts Section -->
-            <div class="blog-section">
+            <div class="post-list">
                 <!-- Sample blog posts -->
                 <div class="blog-post">
                     <h2>Getting Started with React</h2>
@@ -506,15 +551,35 @@ layout: default
         </div>
     </div>
 
+    <!-- Blog Form Modal -->
+    <div id="blog-form">
+        <div class="form-container">
+            <button class="close-form" id="close-form-btn">✕</button>
+            <h2 class="form-title">Create New Blog Post</h2>
+            <form id="new-post-form">
+                <div class="form-group">
+                    <label for="post-title">Title</label>
+                    <input type="text" id="post-title" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="post-content">Content</label>
+                    <textarea id="post-content" name="content" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Publish Post</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Toggle blog form visibility
         document.getElementById('show-form-btn').addEventListener('click', function() {
-            const form = document.getElementById('blog-form');
-            if (form.style.display === 'block') {
-                form.style.display = 'none';
-            } else {
-                form.style.display = 'block';
-            }
+            document.getElementById('blog-form').classList.add('active');
+        });
+
+        document.getElementById('close-form-btn').addEventListener('click', function() {
+            document.getElementById('blog-form').classList.remove('active');
         });
 
         // Handle form submission
@@ -526,7 +591,7 @@ layout: default
             const content = document.getElementById('post-content').value;
             
             // Create new blog post element
-            const blogSection = document.querySelector('.blog-section');
+            const postList = document.querySelector('.post-list');
             const newPost = document.createElement('div');
             newPost.className = 'blog-post';
             
@@ -548,16 +613,15 @@ layout: default
             `;
             
             // Insert new post at the top
-            const firstPost = blogSection.querySelector('.blog-post');
-            if (firstPost) {
-                blogSection.insertBefore(newPost, firstPost);
+            if (postList.firstChild) {
+                postList.insertBefore(newPost, postList.firstChild);
             } else {
-                blogSection.appendChild(newPost);
+                postList.appendChild(newPost);
             }
             
             // Reset form
             document.getElementById('new-post-form').reset();
-            document.getElementById('blog-form').style.display = 'none';
+            document.getElementById('blog-form').classList.remove('active');
             
             alert('Blog post published successfully!');
         });
