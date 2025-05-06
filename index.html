@@ -7,446 +7,212 @@ layout: default
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Personal Homepage</title>
     <style>
-        * {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            background: #3498db;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            background-color: #f5f5f5;
         }
 
         .container {
-            width: 95%;
-            height: 90vh;
+            width: 90%;
+            max-width: 1400px;
+            margin: 20px auto;
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            grid-template-rows: auto 1fr;
-            grid-template-areas: 
-                "intro add"
-                "intro posts";
-            gap: 20px;
-            max-width: 1800px;
+            grid-template-columns: 350px 1fr;
+            gap: 25px;
         }
 
         .profile-section {
-            grid-area: intro;
-            background-color: #e67e22;
-            border-radius: 8px;
-            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
             overflow-y: auto;
+        }
+
+        .blog-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            color: white;
-            position: relative;
         }
 
-        .add-post-section {
-            grid-area: add;
-            background-color: #e67e22;
-            border-radius: 8px;
-            padding: 30px;
+        .blog-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .add-post-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .add-post-text {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: white;
-            text-align: center;
+            margin-bottom: 20px;
         }
 
         .blog-section {
-            grid-area: posts;
-            background-color: #f1c40f;
-            border-radius: 8px;
-            padding: 40px;
-            overflow-y: auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 30px;
-            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            flex-grow: 1;
         }
 
         .photo-container {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 30px;
-            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .portrait {
-            width: 100%;
-            height: 100%;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .profile-content {
-            text-align: center;
-            max-width: 600px;
+        h1, h2 {
+            color: #2a7d8e;
         }
 
-        .profile-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: white;
+        h1 {
+            margin-top: 0;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 10px;
         }
 
-        .profile-info {
+        .blog-header h1 {
+            margin: 0;
+            border: none;
+        }
+
+        .contact-info {
             margin: 20px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
         }
 
-        .profile-info-item {
+        .contact-info p {
+            margin: 8px 0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 1.1rem;
         }
 
-        .profile-info-item a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .profile-info-item a:hover {
-            opacity: 0.8;
-        }
-
-        .profile-bio {
-            margin: 25px 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .contact-info i {
+            margin-right: 10px;
+            color: #4a90e2;
+            width: 20px;
             text-align: center;
-            color: white;
         }
 
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 30px;
+            gap: 8px;
+            margin-top: 15px;
         }
 
         .skill-item {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: #4a90e2;
             color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 1rem;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .post-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
         }
 
         .blog-post {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
         }
 
-        .blog-post:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        .blog-post:first-child {
+            padding-top: 0;
         }
 
-        .blog-post h2 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 1.6rem;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
+        .blog-post:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         .post-date {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .post-date::before {
-            content: "📅";
-            margin-right: 8px;
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
         }
 
         .post-content {
-            margin-top: 15px;
-            line-height: 1.7;
-        }
-
-        .post-content p {
-            font-size: 1.05rem;
-            color: #34495e;
+            margin-top: 10px;
         }
 
         .post-actions {
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .read-more {
-            color: #e67e22;
+            color: #4a90e2;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            padding: 5px 0;
-            position: relative;
-            transition: all 0.3s;
-        }
-
-        .read-more::after {
-            content: "→";
-            margin-left: 8px;
-            transition: transform 0.3s;
         }
 
         .read-more:hover {
-            color: #d35400;
+            text-decoration: underline;
         }
-        
-        .read-more:hover::after {
-            transform: translateX(5px);
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background-color: #3a7bc8;
         }
 
         #blog-form {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
-
-        #blog-form.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .form-container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 800px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            position: relative;
-        }
-
-        .close-form {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #7f8c8d;
-            transition: color 0.3s;
-        }
-
-        .close-form:hover {
-            color: #e74c3c;
-        }
-
-        .form-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #2c3e50;
-            text-align: center;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         label {
             display: block;
-            margin-bottom: 10px;
-            font-weight: 500;
-            color: #2c3e50;
-            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
         input, textarea {
             width: 100%;
-            padding: 15px;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f7f9fc;
-        }
-
-        input:focus, textarea:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
-            background-color: white;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
         textarea {
             min-height: 200px;
             resize: vertical;
-            line-height: 1.6;
         }
 
-        .submit-btn {
-            background: linear-gradient(to right, #e67e22, #f39c12);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            display: block;
-            width: 100%;
-            font-family: 'Poppins', sans-serif;
-            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3);
-        }
-
-        .submit-btn:hover {
-            background: linear-gradient(to right, #d35400, #e67e22);
-            box-shadow: 0 6px 15px rgba(211, 84, 0, 0.3);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 1100px) {
+        @media (max-width: 900px) {
             .container {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto auto 1fr;
-                grid-template-areas: 
-                    "intro"
-                    "add"
-                    "posts";
-                height: auto;
-                min-height: 90vh;
             }
 
             .profile-section {
-                padding: 30px;
-            }
-
-            .add-post-section, .blog-section {
-                padding: 25px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .post-list {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-
-        @media (max-width: "600px") {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                width: 100%;
-                gap: 15px;
-            }
-
-            .profile-section {
-                padding: 20px;
-            }
-
-            .photo-container {
-                width: 120px;
-                height: 120px;
-            }
-
-            .profile-name {
-                font-size: 1.8rem;
-            }
-
-            .profile-bio {
-                font-size: 1rem;
-            }
-
-            .skill-item {
-                font-size: 0.9rem;
-                padding: 8px 15px;
-            }
-
-            .post-list {
-                grid-template-columns: 1fr;
-            }
-
-            .form-container {
-                padding: 20px;
+                position: static;
+                max-height: none;
             }
         }
     </style>
@@ -454,43 +220,34 @@ layout: default
 <body>
     <div class="container">
         <!-- Profile Section - Left Side -->
-        <div class="profile-section">
-            <div class="section-title">自我介绍</div>
-            
+        <div class="proyouremailoexamplen">
             <div class="photo-container">
-                <img src="assets/images/portrait.jpg" alt="Personal Photo" class="portrait">
+                <img src="assets/imaSoftware Engineer="Personal Photo" class="portrait">
             </div>
             
-            <div class="profile-content">
-                <h1 class="profile-name">Dongyan</h1>
-                
-                <div class="profile-info">
-                    <div class="profile-info-item">
-                        <span>📧</span>
-                        <a href="mailto:2303201737@qq.com">2303201737@qq.com</a>
-                    </div>
-                    <div class="profile-info-item">
-                        <span>🏢</span>
-                        <span>Position: Independent Developer</span>
-                    </div>
-                    <div class="profile-info-item">
-                        <span>🌐</span>
-                        <a href="https://github.com/Dongyan0326" target="_blank">GitHub：Dongyan0326</a>
-                    </div>
-                    <div class="profile-info-item">
-                        <span>📱</span>
-                        <span>Phone: +86 180 1373 3907</span>
-                    </div>
-                </div>
-                
-                <div class="profile-bio">
+yourusername <h1>Dongyan</h1>
+            
+            <div class="contact-info">
+          23 4567p8910📧</i> <a href="mailto:2303201737@.com">youremail@example.com</a></p>
+                <p><i>🏢</i> Position: Independent Developer</p>
+                <p><i>🌐</i> <a href="https://github.com/Dongyan0326" target="_blank">GitHub</a></p>
+                <p><i>📱</i> Phone: +86 180 1373 3907</p>
+            </div>
+            
+            <div class="about-me">
+                <h2>About Me</h2>
+                <p>
                     Welcome to my personal website! I am a passionate software engineer with expertise in Web development and Artificial Intelligence.
                     With years of project experience, I excel at solving complex problems and continuously learning new technologies.
-                    <br><br>
+                </p>
+                <p>
                     In my spare time, I enjoy contributing to open-source projects, reading technical books, and exploring new programming languages and frameworks.
                     I believe technology can change the world, and I am committed to creating value through code.
-                </div>
-                
+                </p>
+            </div>
+            
+            <div class="skills">
+                <h2>Skills</h2>
                 <div class="skill-list">
                     <div class="skill-item">JavaScript</div>
                     <div class="skill-item">Python</div>
@@ -504,16 +261,34 @@ layout: default
             </div>
         </div>
 
-        <!-- Add Post Button - Right Top -->
-        <div class="add-post-section" id="show-form-btn">
-            <div class="add-post-text">添加新文章</div>
-        </div>
-        
-        <!-- Blog Posts Section - Right Bottom -->
-        <div class="blog-section">
-            <div class="section-title">文章列表</div>
+        <!-- Blog Section - Right Side -->
+        <div class="blog-container">
+            <!-- Blog Form - Appears when Add button is clicked -->
+            <div id="blog-form">
+                <h2>Create New Blog Post</h2>
+                <form id="new-post-form">
+                    <div class="form-group">
+                        <label for="post-title">Title</label>
+                        <input type="text" id="post-title" name="title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="post-content">Content</label>
+                        <textarea id="post-content" name="content" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Publish Post</button>
+                </form>
+            </div>
+
+            <!-- Blog Header with Title and Add Button -->
+            <div class="blog-header">
+                <h1>Recent Blog Posts</h1>
+                <button id="show-form-btn"><i>✏️</i> Add New Post</button>
+            </div>
             
-            <div class="post-list">
+            <!-- Blog Posts Section -->
+            <div class="blog-section">
                 <!-- Sample blog posts -->
                 <div class="blog-post">
                     <h2>Getting Started with React</h2>
@@ -551,35 +326,15 @@ layout: default
         </div>
     </div>
 
-    <!-- Blog Form Modal -->
-    <div id="blog-form">
-        <div class="form-container">
-            <button class="close-form" id="close-form-btn">✕</button>
-            <h2 class="form-title">Create New Blog Post</h2>
-            <form id="new-post-form">
-                <div class="form-group">
-                    <label for="post-title">Title</label>
-                    <input type="text" id="post-title" name="title" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="post-content">Content</label>
-                    <textarea id="post-content" name="content" required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Publish Post</button>
-            </form>
-        </div>
-    </div>
-
     <script>
         // Toggle blog form visibility
         document.getElementById('show-form-btn').addEventListener('click', function() {
-            document.getElementById('blog-form').classList.add('active');
-        });
-
-        document.getElementById('close-form-btn').addEventListener('click', function() {
-            document.getElementById('blog-form').classList.remove('active');
+            const form = document.getElementById('blog-form');
+            if (form.style.display === 'block') {
+                form.style.display = 'none';
+            } else {
+                form.style.display = 'block';
+            }
         });
 
         // Handle form submission
@@ -591,7 +346,7 @@ layout: default
             const content = document.getElementById('post-content').value;
             
             // Create new blog post element
-            const postList = document.querySelector('.post-list');
+            const blogSection = document.querySelector('.blog-section');
             const newPost = document.createElement('div');
             newPost.className = 'blog-post';
             
@@ -613,15 +368,16 @@ layout: default
             `;
             
             // Insert new post at the top
-            if (postList.firstChild) {
-                postList.insertBefore(newPost, postList.firstChild);
+            const firstPost = blogSection.querySelector('.blog-post');
+            if (firstPost) {
+                blogSection.insertBefore(newPost, firstPost);
             } else {
-                postList.appendChild(newPost);
+                blogSection.appendChild(newPost);
             }
             
             // Reset form
             document.getElementById('new-post-form').reset();
-            document.getElementById('blog-form').classList.remove('active');
+            document.getElementById('blog-form').style.display = 'none';
             
             alert('Blog post published successfully!');
         });
